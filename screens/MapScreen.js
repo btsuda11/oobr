@@ -9,6 +9,6 @@ const MapScreen = () => {
   )
 }
 
-export default MapScreen
+export default MapScreen;
 
 const styles = StyleSheet.create({})
