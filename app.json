@@ -18,6 +18,7 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.personal.oobr",
       "supportsTablet": true
     },
     "android": {
