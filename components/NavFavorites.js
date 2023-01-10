@@ -2,7 +2,6 @@ import { StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native
 import React from 'react'
 import { Icon } from 'react-native-elements';
 import tw from 'tailwind-react-native-classnames';
-import { setOrigin } from '../slices/navSlice';
 
 const data = [
     {
@@ -16,6 +15,12 @@ const data = [
         icon: 'briefcase',
         location: 'Work',
         destination: 'San Francisco, CA, USA'
+    },
+    {
+        id: '789',
+        icon: 'barbell-outline',
+        location: 'Gym',
+        destination: 'FITNESS SF - Fillmore, Fillmore Street, SF, CA, USA'
     }
 ]
 
