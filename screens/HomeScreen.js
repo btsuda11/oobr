@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
@@ -10,6 +10,7 @@ import { setDestination, setOrigin } from '../slices/navSlice';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
+  const originRef = useRef();
 
   return (
     <SafeAreaView style={tw `bg-white h-full`}>
@@ -23,6 +24,7 @@ const HomeScreen = () => {
             }}
         />
         <GooglePlacesAutocomplete 
+          ref={originRef}
           styles={{
             container: {
               flex: 0
@@ -55,7 +57,7 @@ const HomeScreen = () => {
           debounce={400}
         />
         <NavOptions />
-        <NavFavorites />
+        <NavFavorites originRef={originRef} />
       </View>
     </SafeAreaView>
   )

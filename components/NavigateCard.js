@@ -1,15 +1,17 @@
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
-import React from 'react';
+import React, { useRef } from 'react';
 import tw from 'tailwind-react-native-classnames';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from '@env';
 import { setDestination } from '../slices/navSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+import NavFavorites from './NavFavorites';
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const destinationRef = useRef(null);
 
   return (
     <SafeAreaView style={tw `flex-1 bg-white`}>
@@ -17,6 +19,7 @@ const NavigateCard = () => {
       <View style={tw `border-t border-gray-200 flex-shrink`}>
         <View>
             <GooglePlacesAutocomplete 
+                ref={destinationRef}
                 placeholder='Where To?'
                 styles={toInputBoxStyles}
                 returnKeyType={'search'}
@@ -38,6 +41,7 @@ const NavigateCard = () => {
                 debounce={400}
             />
         </View>
+        <NavFavorites destinationRef={destinationRef} />
       </View>
     </SafeAreaView>
   )
