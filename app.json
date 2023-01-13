@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "oobr",
+    "description": "An Uber Mobile Clone",
     "slug": "oobr",
     "version": "1.0.0",
     "orientation": "portrait",
